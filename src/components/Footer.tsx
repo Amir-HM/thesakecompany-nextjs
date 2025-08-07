@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import ProductCards from './ProductCards';
 
 export default function Footer() {
+  const [showProducts, setShowProducts] = useState(false);
+
   return (
     <div
       style={{
@@ -25,7 +28,10 @@ export default function Footer() {
           lineHeight: 'normal',
           textTransform: 'uppercase',
           position: 'relative',
+          cursor: 'pointer',
         }}
+        onMouseEnter={() => setShowProducts(true)}
+        onMouseLeave={() => setShowProducts(false)}
       >
         <span style={{
           fontFamily: 'OCR-B, -apple-system, Roboto, Helvetica, sans-serif',
@@ -71,8 +77,8 @@ export default function Footer() {
         </span>
       </div>
 
-      {/* Product Cards - hidden by default, shown on hover */}
-      <ProductCards />
+      {/* Product Cards - controlled by state */}
+      <ProductCards showProducts={showProducts} setShowProducts={setShowProducts} />
     </div>
   );
 }
