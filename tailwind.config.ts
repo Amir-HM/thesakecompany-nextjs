@@ -14,9 +14,14 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
         display: ['var(--font-display)', ...defaultTheme.fontFamily.sans],
+        mono: ['OCR-B', 'Courier Prime', 'Courier New', 'monospace'],
+        'ocr-b': ['OCR-B', 'Courier Prime', 'Courier New', 'monospace'],
       },
       colors: {
-        // Custom color palette example
+        brand: {
+          bg: '#FAFAFA',
+          text: '#1D1D1D',
+        },
         primary: {
           light: '#F3E8FF',
           DEFAULT: '#8B5CF6',

@@ -1,10 +1,42 @@
-export default function Home() {
+import { Suspense } from 'react';
+import Header from '@/components/Header';
+import ImageGrid from '@/components/ImageGrid';
+import Footer from '@/components/Footer';
+
+export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen text-center gap-8">
-      <h1 className="text-5xl font-display font-bold">Welcome to The Sake Company</h1>
-      <p className="max-w-xl text-lg text-gray-600 dark:text-gray-300">
-        A creative portfolio and content-driven site built with Next.js, Sanity, and more.
-      </p>
-    </main>
+    <div
+      style={{
+        display: 'flex',
+        width: '100vw',
+        height: '100vh',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        background: '#FAFAFA',
+        position: 'relative',
+        left: '0px',
+        top: '0px',
+      }}
+    >
+      <Header />
+
+      <Suspense fallback={
+        <div style={{
+          flex: '1 0 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <div className="ocr-b-text">
+            Loading...
+          </div>
+        </div>
+      }>
+        <ImageGrid />
+      </Suspense>
+
+      <Footer />
+    </div>
   );
 }
