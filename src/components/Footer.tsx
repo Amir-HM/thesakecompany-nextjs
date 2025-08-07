@@ -1,3 +1,5 @@
+import ProductCards from './ProductCards';
+
 export default function Footer() {
   return (
     <div
@@ -13,7 +15,7 @@ export default function Footer() {
     >
       {/* Products */}
       <div
-        className="ocr-b-text"
+        className="ocr-b-text products-hover"
         style={{
           color: '#1D1D1D',
           fontFamily: 'OCR-B',
@@ -68,6 +70,9 @@ export default function Footer() {
           details
         </span>
       </div>
+
+      {/* Product Cards - hidden by default, shown on hover */}
+      <ProductCards />
     </div>
   );
 }
