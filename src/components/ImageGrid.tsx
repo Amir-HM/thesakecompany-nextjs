@@ -20,19 +20,7 @@ const images = [
 
 export default function ImageGrid() {
   return (
-    <div
-      style={{
-        display: 'grid',
-        padding: '0 16px',
-        rowGap: window.innerWidth >= 1024 ? '10px' : '16px',
-        columnGap: '16px',
-        flex: '1 0 0',
-        alignSelf: 'stretch',
-        height: '100%',
-        position: 'relative',
-        gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(3, minmax(0, 1fr))' : 'repeat(1, minmax(0, 1fr))',
-      }}
-    >
+    <div className="responsive-image-grid">
       {images.map((image, index) => (
         <div
           key={index}
