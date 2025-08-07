@@ -3,32 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Roboto Flex', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+html, body {
+  height: 100%;
+  font-family: 'OCR-B', 'Courier Prime', 'Courier New', monospace;
   background: #FAFAFA;
   color: #1D1D1D;
-  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
-.dark body {
-  background: #000;
-  color: #fff;
-}
-
-/* OCR-B font exact match */
-.font-ocr-b {
+/* Exact OCR-B font styling from Figma */
+.ocr-b-text {
   font-family: 'OCR-B', 'Courier Prime', 'Courier New', monospace;
   font-size: 12px;
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
   letter-spacing: 0em;
+  color: #1D1D1D;
 }
