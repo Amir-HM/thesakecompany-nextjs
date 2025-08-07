@@ -16,6 +16,7 @@ export default function Footer() {
         alignSelf: 'stretch',
         background: '#FAFAFA',
         position: 'relative',
+        zIndex: 1,
       }}
     >
       {/* Products */}
