@@ -30,20 +30,20 @@ html, body {
 
 /* Responsive image grid */
 .responsive-image-grid {
-  display: grid;
-  padding: 0 16px;
-  row-gap: 16px;
-  column-gap: 16px;
-  flex: 1 0 0;
-  align-self: stretch;
-  height: 100%;
-  position: relative;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid !important;
+  padding: 0 16px !important;
+  row-gap: 16px !important;
+  column-gap: 16px !important;
+  flex: 1 0 0 !important;
+  align-self: stretch !important;
+  height: 100% !important;
+  position: relative !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 }
 
 @media (min-width: 1024px) {
   .responsive-image-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    row-gap: 10px !important;
   }
 }
