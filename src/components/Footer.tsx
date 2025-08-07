@@ -1,15 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <motion.footer
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.8 }}
-      className="flex items-center bg-[#FAFAFA]"
       style={{
         display: 'flex',
         padding: '8px 16px',
@@ -17,29 +15,66 @@ export default function Footer() {
         gap: '16px',
         alignSelf: 'stretch',
         background: '#FAFAFA',
+        position: 'relative',
       }}
     >
       {/* Products */}
-      <Link
-        href="/products"
-        className="font-ocr-b text-[#1D1D1D] hover:opacity-70 transition-opacity"
+      <div 
+        className="ocr-b-text"
+        style={{
+          color: '#1D1D1D',
+          fontFamily: 'OCR-B',
+          fontSize: '12px',
+          fontStyle: 'normal',
+          fontWeight: 400,
+          lineHeight: 'normal',
+          textTransform: 'uppercase',
+          position: 'relative',
+        }}
       >
-        Products
-      </Link>
-
+        <span style={{
+          fontFamily: 'OCR-B, -apple-system, Roboto, Helvetica, sans-serif',
+          fontWeight: 400,
+          fontSize: '12px',
+          color: 'rgba(29,29,29,1)',
+        }}>
+          Products
+        </span>
+      </div>
+      
       {/* Center line - exact width from Figma */}
-      <div
-        className="h-px bg-[#1D1D1D]"
-        style={{ width: '1219px', height: '1px', background: '#1D1D1D' }}
+      <div 
+        style={{
+          width: '1219px',
+          height: '1px',
+          background: '#1D1D1D',
+          position: 'relative',
+        }}
       />
-
+      
       {/* Details */}
-      <Link
-        href="/details"
-        className="font-ocr-b text-[#1D1D1D] hover:opacity-70 transition-opacity"
+      <div 
+        className="ocr-b-text"
+        style={{
+          color: '#1D1D1D',
+          fontFamily: 'OCR-B',
+          fontSize: '12px',
+          fontStyle: 'normal',
+          fontWeight: 400,
+          lineHeight: 'normal',
+          textTransform: 'uppercase',
+          position: 'relative',
+        }}
       >
-        details
-      </Link>
-    </motion.footer>
+        <span style={{
+          fontFamily: 'OCR-B, -apple-system, Roboto, Helvetica, sans-serif',
+          fontWeight: 400,
+          fontSize: '12px',
+          color: 'rgba(29,29,29,1)',
+        }}>
+          details
+        </span>
+      </div>
+    </motion.div>
   );
 }
