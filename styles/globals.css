@@ -27,3 +27,23 @@ html, body {
   letter-spacing: 0em;
   color: #1D1D1D;
 }
+
+/* Responsive image grid */
+.responsive-image-grid {
+  display: grid;
+  padding: 0 16px;
+  row-gap: 16px;
+  column-gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+  height: 100%;
+  position: relative;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 1024px) {
+  .responsive-image-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 10px;
+  }
+}
