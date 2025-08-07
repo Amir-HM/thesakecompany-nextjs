@@ -1,5 +1,10 @@
 import Image from 'next/image';
 
+interface ProductCardsProps {
+  showProducts: boolean;
+  setShowProducts: (show: boolean) => void;
+}
+
 const products = [
   {
     name: 'Junmai',
@@ -9,7 +14,7 @@ const products = [
     aspectRatio: '38/117'
   },
   {
-    name: 'Aruten', 
+    name: 'Aruten',
     image: 'https://api.builder.io/api/v1/image/assets/TEMP/58e88d50748db4573ef5bcf75bf2c9b8f3d63458?width=290',
     width: 145,
     height: 145,
@@ -38,9 +43,19 @@ const products = [
   }
 ];
 
-export default function ProductCards() {
+export default function ProductCards({ showProducts, setShowProducts }: ProductCardsProps) {
+  if (!showProducts) return null;
+
   return (
-    <div className="product-cards-container">
+    <div
+      className="product-cards-container"
+      style={{
+        opacity: showProducts ? 1 : 0,
+        visibility: showProducts ? 'visible' : 'hidden',
+      }}
+      onMouseEnter={() => setShowProducts(true)}
+      onMouseLeave={() => setShowProducts(false)}
+    >
       <div className="product-cards-grid">
         {products.map((product, index) => (
           <div key={index} className="product-card">
@@ -54,7 +69,7 @@ export default function ProductCards() {
             </div>
 
             {/* Product image */}
-            <div 
+            <div
               className="product-image-container"
               style={{
                 width: `${product.width}px`,
