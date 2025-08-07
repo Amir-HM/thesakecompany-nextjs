@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=OCR+A+Std:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +23,12 @@ body {
   color: #fff;
 }
 
-/* OCR-B font fallback */
-.font-mono {
-  font-family: 'OCR A Std', 'Courier New', monospace;
+/* OCR-B font exact match */
+.font-ocr-b {
+  font-family: 'OCR-B', 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0em;
 }
