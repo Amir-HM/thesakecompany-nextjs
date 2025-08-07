@@ -9,8 +9,7 @@ import MotionWrapper from '@/components/MotionWrapper';
 export default function HomePage() {
   return (
     <MotionWrapper>
-      <div
-        className="flex flex-col bg-[#FAFAFA]"
+      <div 
         style={{
           display: 'flex',
           width: '100vw',
@@ -19,22 +18,28 @@ export default function HomePage() {
           justifyContent: 'space-between',
           alignItems: 'flex-start',
           background: '#FAFAFA',
+          position: 'relative',
+          left: '0px',
+          top: '0px',
         }}
       >
         <Header />
-
-        <main className="flex-1 w-full">
-          <Suspense fallback={
-            <div className="flex-1 flex items-center justify-center">
-              <div className="animate-pulse font-ocr-b text-[#1D1D1D]">
-                Loading...
-              </div>
+        
+        <Suspense fallback={
+          <div style={{
+            flex: '1 0 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <div className="ocr-b-text">
+              Loading...
             </div>
-          }>
-            <ImageGrid />
-          </Suspense>
-        </main>
-
+          </div>
+        }>
+          <ImageGrid />
+        </Suspense>
+        
         <Footer />
       </div>
     </MotionWrapper>
