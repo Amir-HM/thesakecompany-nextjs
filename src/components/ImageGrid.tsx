@@ -20,48 +20,38 @@ const images = [
 
 export default function ImageGrid() {
   return (
-    <>
-      <style jsx>{`
-        .image-grid {
-          display: grid;
-          padding: 0 16px;
-          row-gap: 16px;
-          column-gap: 16px;
-          flex: 1 0 0;
-          align-self: stretch;
-          height: 100%;
-          position: relative;
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-
-        @media (min-width: 1024px) {
-          .image-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            row-gap: 10px;
-          }
-        }
-      `}</style>
-      <div className="image-grid">
-        {images.map((image, index) => (
-          <div
-            key={index}
+    <div
+      style={{
+        display: 'grid',
+        padding: '0 16px',
+        rowGap: window.innerWidth >= 1024 ? '10px' : '16px',
+        columnGap: '16px',
+        flex: '1 0 0',
+        alignSelf: 'stretch',
+        height: '100%',
+        position: 'relative',
+        gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(3, minmax(0, 1fr))' : 'repeat(1, minmax(0, 1fr))',
+      }}
+    >
+      {images.map((image, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
             style={{
-              position: 'relative',
-              overflow: 'hidden',
+              objectFit: 'cover',
             }}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-              sizes="(max-width: 1024px) 100vw, 33vw"
-            />
-          </div>
-        ))}
-      </div>
-    </>
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
+      ))}
+    </div>
   );
 }
