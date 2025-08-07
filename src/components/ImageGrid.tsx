@@ -20,30 +20,30 @@ const images = [
 
 export default function ImageGrid() {
   return (
-    <>
+    <div
+      style={{
+        padding: '0 16px',
+        flex: '1 0 0',
+        alignSelf: 'stretch',
+        position: 'relative',
+      }}
+    >
       {/* Desktop Grid - 3 columns horizontal */}
       <div
-        className="hidden lg:grid"
         style={{
           display: 'grid',
-          padding: '0 16px',
           rowGap: '10px',
           columnGap: '16px',
-          flex: '1 0 0',
-          alignSelf: 'stretch',
+          height: '100%',
           gridTemplateRows: 'repeat(1, minmax(0, 1fr))',
           gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-          position: 'relative',
         }}
+        className="hidden lg:grid"
       >
         {images.map((image, index) => (
           <div
             key={index}
             style={{
-              flex: '1 0 0',
-              alignSelf: 'stretch',
-              gridRow: '1 / span 1',
-              gridColumn: `${index + 1} / span 1`,
               position: 'relative',
               overflow: 'hidden',
             }}
@@ -63,27 +63,20 @@ export default function ImageGrid() {
 
       {/* Tablet & Mobile Grid - 3 rows vertical */}
       <div
-        className="lg:hidden"
         style={{
           display: 'grid',
-          padding: '0 16px',
           rowGap: '16px',
           columnGap: '16px',
-          flex: '1 0 0',
-          alignSelf: 'stretch',
+          height: '100%',
           gridTemplateRows: 'repeat(3, minmax(0, 1fr))',
           gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
-          position: 'relative',
         }}
+        className="block lg:hidden"
       >
         {images.map((image, index) => (
           <div
             key={`mobile-${index}`}
             style={{
-              flex: '1 0 0',
-              alignSelf: 'stretch',
-              gridRow: `${index + 1} / span 1`,
-              gridColumn: '1 / span 1',
               position: 'relative',
               overflow: 'hidden',
             }}
@@ -100,6 +93,6 @@ export default function ImageGrid() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
