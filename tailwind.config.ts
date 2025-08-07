@@ -14,7 +14,8 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
         display: ['var(--font-display)', ...defaultTheme.fontFamily.sans],
-        mono: ['OCR-B', 'Courier New', 'monospace'],
+        mono: ['OCR-B', 'Courier Prime', 'Courier New', 'monospace'],
+        'ocr-b': ['OCR-B', 'Courier Prime', 'Courier New', 'monospace'],
       },
       colors: {
         brand: {
