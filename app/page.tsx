@@ -1,10 +1,31 @@
-export default function Home() {
+'use client';
+
+import { Suspense } from 'react';
+import Header from '@/components/Header';
+import ImageGrid from '@/components/ImageGrid';
+import Footer from '@/components/Footer';
+import MotionWrapper from '@/components/MotionWrapper';
+
+export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen text-center gap-8">
-      <h1 className="text-5xl font-display font-bold">Welcome to The Sake Company</h1>
-      <p className="max-w-xl text-lg text-gray-600 dark:text-gray-300">
-        A creative portfolio and content-driven site built with Next.js, Sanity, and more.
-      </p>
-    </main>
+    <MotionWrapper>
+      <div className="min-h-screen flex flex-col bg-brand-bg">
+        <Header />
+        
+        <main className="flex-1 flex flex-col">
+          <Suspense fallback={
+            <div className="flex-1 flex items-center justify-center">
+              <div className="animate-pulse font-mono text-xs text-brand-text">
+                Loading...
+              </div>
+            </div>
+          }>
+            <ImageGrid />
+          </Suspense>
+        </main>
+        
+        <Footer />
+      </div>
+    </MotionWrapper>
   );
 }
