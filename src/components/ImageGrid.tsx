@@ -22,77 +22,36 @@ export default function ImageGrid() {
   return (
     <div
       style={{
+        display: 'grid',
         padding: '0 16px',
+        rowGap: '16px',
+        columnGap: '16px',
         flex: '1 0 0',
         alignSelf: 'stretch',
+        height: '100%',
         position: 'relative',
       }}
+      className="grid-cols-1 lg:grid-cols-3 lg:row-gap-[10px]"
     >
-      {/* Desktop Grid - 3 columns horizontal */}
-      <div
-        style={{
-          display: 'grid',
-          rowGap: '10px',
-          columnGap: '16px',
-          height: '100%',
-          gridTemplateRows: 'repeat(1, minmax(0, 1fr))',
-          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        }}
-        className="hidden lg:grid"
-      >
-        {images.map((image, index) => (
-          <div
-            key={index}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
             style={{
-              position: 'relative',
-              overflow: 'hidden',
+              objectFit: 'cover',
             }}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-              sizes="33vw"
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Tablet & Mobile Grid - 3 rows vertical */}
-      <div
-        style={{
-          display: 'grid',
-          rowGap: '16px',
-          columnGap: '16px',
-          height: '100%',
-          gridTemplateRows: 'repeat(3, minmax(0, 1fr))',
-          gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
-        }}
-        className="block lg:hidden"
-      >
-        {images.map((image, index) => (
-          <div
-            key={`mobile-${index}`}
-            style={{
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-              sizes="100vw"
-            />
-          </div>
-        ))}
-      </div>
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
+      ))}
     </div>
   );
 }
