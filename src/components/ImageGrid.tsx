@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const images = [
@@ -21,35 +18,9 @@ const images = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
-};
-
 export default function ImageGrid() {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+    <div
       style={{
         display: 'grid',
         padding: '0 16px',
@@ -63,11 +34,8 @@ export default function ImageGrid() {
       }}
     >
       {images.map((image, index) => (
-        <motion.div
+        <div
           key={index}
-          variants={itemVariants}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
           style={{
             flex: '1 0 0',
             alignSelf: 'stretch',
@@ -86,8 +54,8 @@ export default function ImageGrid() {
             }}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
-        </motion.div>
+        </div>
       ))}
-    </motion.div>
+    </div>
   );
 }
