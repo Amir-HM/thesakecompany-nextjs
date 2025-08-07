@@ -30,8 +30,8 @@ export default function ImageGrid() {
         alignSelf: 'stretch',
         height: '100%',
         position: 'relative',
-        gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
       }}
+      className="grid-cols-1 lg:grid-cols-3 lg:row-gap-[10px]"
     >
       {images.map((image, index) => (
         <div
@@ -48,7 +48,7 @@ export default function ImageGrid() {
             style={{
               objectFit: 'cover',
             }}
-            sizes="100vw"
+            sizes="(max-width: 1024px) 100vw, 33vw"
           />
         </div>
       ))}
