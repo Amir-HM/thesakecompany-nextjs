@@ -20,42 +20,86 @@ const images = [
 
 export default function ImageGrid() {
   return (
-    <div
-      style={{
-        display: 'grid',
-        padding: '0 16px',
-        rowGap: '10px',
-        columnGap: '16px',
-        flex: '1 0 0',
-        alignSelf: 'stretch',
-        gridTemplateRows: 'repeat(1, minmax(0, 1fr))',
-        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        position: 'relative',
-      }}
-    >
-      {images.map((image, index) => (
-        <div
-          key={index}
-          style={{
-            flex: '1 0 0',
-            alignSelf: 'stretch',
-            gridRow: '1 / span 1',
-            gridColumn: `${index + 1} / span 1`,
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
+    <>
+      {/* Desktop Grid - 3 columns horizontal */}
+      <div
+        className="hidden lg:grid"
+        style={{
+          display: 'grid',
+          padding: '0 16px',
+          rowGap: '10px',
+          columnGap: '16px',
+          flex: '1 0 0',
+          alignSelf: 'stretch',
+          gridTemplateRows: 'repeat(1, minmax(0, 1fr))',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          position: 'relative',
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+            key={index}
             style={{
-              objectFit: 'cover',
+              flex: '1 0 0',
+              alignSelf: 'stretch',
+              gridRow: '1 / span 1',
+              gridColumn: `${index + 1} / span 1`,
+              position: 'relative',
+              overflow: 'hidden',
             }}
-            sizes="(max-width: 768px) 100vw, 33vw"
-          />
-        </div>
-      ))}
-    </div>
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              style={{
+                objectFit: 'cover',
+              }}
+              sizes="33vw"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Tablet & Mobile Grid - 3 rows vertical */}
+      <div
+        className="lg:hidden"
+        style={{
+          display: 'grid',
+          padding: '0 16px',
+          rowGap: '16px',
+          columnGap: '16px',
+          flex: '1 0 0',
+          alignSelf: 'stretch',
+          gridTemplateRows: 'repeat(3, minmax(0, 1fr))',
+          gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+          position: 'relative',
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+            key={`mobile-${index}`}
+            style={{
+              flex: '1 0 0',
+              alignSelf: 'stretch',
+              gridRow: `${index + 1} / span 1`,
+              gridColumn: '1 / span 1',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              style={{
+                objectFit: 'cover',
+              }}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
