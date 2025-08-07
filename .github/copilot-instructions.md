@@ -1,0 +1,3 @@
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+
+This project is a Next.js 14+ (App Router) creative portfolio/content site using TypeScript, TailwindCSS, Framer Motion, Swup.js, Sanity v3, and Netlify. Use best practices for accessibility, responsiveness, and clean TypeScript code. Use functional components, hooks, and types for Sanity schema. Animations should respect prefers-reduced-motion and ARIA. Use Next.js Metadata API for SEO.

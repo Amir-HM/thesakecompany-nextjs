@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+  edge_functions = "true"
+
+[dev]
+  command = "npm run dev"
+
+[functions]
+  node_bundler = "esbuild"
