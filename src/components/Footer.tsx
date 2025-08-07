@@ -5,29 +5,40 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <motion.footer 
+    <motion.footer
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.8 }}
-      className="flex items-center gap-4 p-2 px-4 bg-brand-bg border-t border-brand-text/10"
+      className="flex items-center bg-[#FAFAFA]"
+      style={{
+        display: 'flex',
+        padding: '8px 16px',
+        alignItems: 'center',
+        gap: '16px',
+        alignSelf: 'stretch',
+        background: '#FAFAFA',
+      }}
     >
       {/* Products */}
-      <Link 
+      <Link
         href="/products"
-        className="font-mono text-xs text-brand-text uppercase tracking-wide hover:opacity-70 transition-opacity"
+        className="font-ocr-b text-[#1D1D1D] hover:opacity-70 transition-opacity"
       >
         Products
       </Link>
-      
-      {/* Center line */}
-      <div className="flex-1 h-px bg-brand-text" />
-      
+
+      {/* Center line - exact width from Figma */}
+      <div
+        className="h-px bg-[#1D1D1D]"
+        style={{ width: '1219px', height: '1px', background: '#1D1D1D' }}
+      />
+
       {/* Details */}
-      <Link 
+      <Link
         href="/details"
-        className="font-mono text-xs text-brand-text uppercase tracking-wide hover:opacity-70 transition-opacity"
+        className="font-ocr-b text-[#1D1D1D] hover:opacity-70 transition-opacity"
       >
-        Details
+        details
       </Link>
     </motion.footer>
   );
