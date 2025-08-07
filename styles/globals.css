@@ -31,7 +31,7 @@ html, body {
 /* Responsive image grid */
 .responsive-image-grid {
   display: grid !important;
-  padding: 0 16px !important;
+  padding: 0 !important;
   row-gap: 16px !important;
   column-gap: 16px !important;
   flex: 1 0 0 !important;
