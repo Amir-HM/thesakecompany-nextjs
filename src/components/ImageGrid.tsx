@@ -51,10 +51,20 @@ export default function ImageGrid() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex-1 p-4"
+      className="flex-1 px-4"
+      style={{ padding: '0 16px' }}
     >
-      {/* Desktop Grid - 3 columns */}
-      <div className="hidden md:grid md:grid-cols-3 gap-4 h-full">
+      {/* Desktop Grid - exactly matching Figma: row-gap:10px, column-gap:16px */}
+      <div
+        className="hidden md:grid h-full"
+        style={{
+          display: 'grid',
+          gridTemplateRows: 'repeat(1, minmax(0, 1fr))',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          rowGap: '10px',
+          columnGap: '16px',
+        }}
+      >
         {images.map((image, index) => (
           <motion.div
             key={index}
@@ -62,6 +72,12 @@ export default function ImageGrid() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
             className="relative overflow-hidden group cursor-pointer"
+            style={{
+              flex: '1 0 0',
+              alignSelf: 'stretch',
+              gridRow: '1 / span 1',
+              gridColumn: `${index + 1} / span 1`,
+            }}
           >
             <Image
               src={image.src}
@@ -74,17 +90,34 @@ export default function ImageGrid() {
         ))}
       </div>
 
-      {/* Mobile Grid - 2 rows with bottle overlays */}
-      <div className="md:hidden grid grid-rows-2 gap-4 h-full">
+      {/* Mobile Grid - exactly matching Figma: row-gap:16px */}
+      <div
+        className="md:hidden h-full"
+        style={{
+          display: 'grid',
+          gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
+          gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+          rowGap: '16px',
+          columnGap: '16px',
+        }}
+      >
         {images.slice(0, 2).map((image, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
             className="relative overflow-hidden flex items-center justify-center"
             style={{
-              backgroundImage: `url(${image.mobileBackground})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              display: 'flex',
+              padding: '16px 123px',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              flex: '1 0 0',
+              alignSelf: 'stretch',
+              gridRow: `${index + 1} / span 1`,
+              gridColumn: '1 / span 1',
+              background: `url('${image.mobileBackground}') lightgray 50% / cover no-repeat`,
             }}
           >
             {image.mobileOverlay && (
@@ -100,6 +133,12 @@ export default function ImageGrid() {
                   width={index === 0 ? 66 : 230}
                   height={index === 0 ? 202 : 219}
                   className="object-contain"
+                  style={{
+                    width: index === 0 ? '66px' : 'auto',
+                    height: index === 0 ? '202px' : '219px',
+                    aspectRatio: index === 0 ? '33/101' : 'auto',
+                    alignSelf: index === 0 ? 'auto' : 'stretch',
+                  }}
                 />
               </motion.div>
             )}
